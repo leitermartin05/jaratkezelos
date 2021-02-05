@@ -8,5 +8,6 @@ namespace jaratkezelos
 {
     public class Class1
     {
+
     }
 }
