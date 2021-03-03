@@ -11,7 +11,19 @@ namespace jaratkezelos
         List<Jarat> jaratok = new List<Jarat>();
         public void UjJarat(string jaratSzam, string repterHonnan, string repterHova, DateTime indulas)
         {
-            Jarat felveendo = new Jarat(jaratSzam, repterHonnan, repterHova, indulas);
+            foreach (var jarat in jaratok)
+            {
+                    if (jarat.JaratSzam==jaratSzam)
+                                {
+                    throw new ArgumentException("Létező járat: ", jaratSzam);
+                                } else
+                {
+Jarat felveendo = new Jarat(jaratSzam, repterHonnan, repterHova, indulas);
+                }
+            }
+            
+            
+            
         }
 
         public void Keses(string jaratSzam, int keses)
