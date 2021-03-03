@@ -29,7 +29,13 @@ namespace jaratkezelos
                         jarat.Keses += keses;
                     }
                 }
+                if (jarat.Keses< 0)
+                {
+                    throw new NegativKesesExaption(jaratSzam);
+                }
             }
+
+           
         }
 
         public DateTime MikorIndul(string jaratSzam)
