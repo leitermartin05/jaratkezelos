@@ -22,7 +22,11 @@ namespace jaratkezelos
                 {
                     if (jarat.Keses+keses<0)
                     {
-
+                        jarat.Keses = 0;
+                    }
+                    else
+                    {
+                        jarat.Keses += keses;
                     }
                 }
             }
@@ -30,13 +34,39 @@ namespace jaratkezelos
 
         public DateTime MikorIndul(string jaratSzam)
         {
-            return ;
+            foreach (var jarat in jaratok)
+                {
+                    if (jarat.JaratSzam==jaratSzam)
+                    {
+                        return jarat.Indulas.AddMinutes(jarat.Keses);
+                    }
+                    
+                    
+                }
+            throw new ArgumentException("Nincs ilyen járat", "jaratSzam");
+           
+           
         }
 
         public List<string> JaratokRepuloterrol(string repter)
         {
-            return;
-        }
+            List<string> jaratSzamok = new List<string>();
+             foreach (var jarat in jaratok)
+                {
+                    if (jarat.HonnanRepter == repter)
+                    {
+                        jaratSzamok.Add(jarat.JaratSzam);
+                    }
+                }
+            if (jaratSzamok.Count!=0)
+            {
+                return jaratSzamok;
+            } else
+            {
+                throw new ArgumentException("Nincs ilyen reptér", repter);
+            }   
+            } 
+        
     }
 
 
