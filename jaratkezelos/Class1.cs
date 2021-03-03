@@ -13,16 +13,17 @@ namespace jaratkezelos
         {
             foreach (var jarat in jaratok)
             {
-                    if (jarat.JaratSzam==jaratSzam)
-                                {
-                    throw new ArgumentException("Létező járat: ", jaratSzam);
-                                } else
+                if (jarat.JaratSzam == jaratSzam)
                 {
-Jarat felveendo = new Jarat(jaratSzam, repterHonnan, repterHova, indulas);
+                    throw new ArgumentException("Létező járat: ", jaratSzam);
+                    return;
                 }
+
+                
+                
             }
-            
-            
+            Jarat felveendo = new Jarat(jaratSzam, repterHonnan, repterHova, indulas);
+            jaratok.Add(felveendo);
             
         }
 
