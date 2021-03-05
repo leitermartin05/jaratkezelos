@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace jaratkezelos
 {
-    public class Class1
+    public class JaratKezelo
     {
         List<Jarat> jaratok = new List<Jarat>();
         public void UjJarat(string jaratSzam, string repterHonnan, string repterHova, DateTime indulas)
         {
+            bool sikeres = false;
             foreach (var jarat in jaratok)
             {
                 if (jarat.JaratSzam == jaratSzam)
@@ -22,8 +23,15 @@ namespace jaratkezelos
                 
                 
             }
-            Jarat felveendo = new Jarat(jaratSzam, repterHonnan, repterHova, indulas);
-            jaratok.Add(felveendo);
+            try
+            {
+                Jarat felveendo = new Jarat(jaratSzam, repterHonnan, repterHova, indulas);
+                jaratok.Add(felveendo);
+                sikeres = true;
+            } catch (ArgumentException e)
+            {
+                throw e;
+            }
             
         }
 
@@ -45,6 +53,10 @@ namespace jaratkezelos
                 if (jarat.Keses< 0)
                 {
                     throw new NegativKesesExaption(jaratSzam);
+                }
+                else
+                {
+                    throw new FormatException("Hibás bemeneti paraméter");
                 }
             }
 

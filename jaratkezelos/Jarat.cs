@@ -13,7 +13,7 @@ namespace jaratkezelos
         private string hovaRepter;
         private DateTime indulas;
         private int keses;
-
+        public Jarat() { }
         public Jarat(string jaratSzam, string honnanRepter, string hovaRepter, DateTime indulas)
         {
             this.jaratSzam = jaratSzam;
@@ -28,5 +28,7 @@ namespace jaratkezelos
         public string HovaRepter { get => hovaRepter; set => hovaRepter = value; }
         public DateTime Indulas { get => indulas; set => indulas = value; }
         public int Keses { get => keses; set => keses = value; }
+
+
     }
 }
